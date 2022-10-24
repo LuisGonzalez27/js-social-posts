@@ -1,3 +1,5 @@
+"use strict";
+
 const posts = [
     {
         "id": 1,
@@ -69,7 +71,7 @@ for(let i = 0; i < posts.length; i++){
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${posts[i].author.name}</div>
-                        <div class="post-meta__time">4 mesi fa</div>
+                        <div class="post-meta__time">${posts[i].created}</div>
                     </div>                    
                 </div>
             </div>
@@ -87,11 +89,25 @@ for(let i = 0; i < posts.length; i++){
                         </a>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${posts[i].likes}</b> persone
                     </div>
                 </div> 
             </div>            
         </div>
     `;
-}
+};
 contPost.innerHTML = post;
+
+const btnLike = document.querySelectorAll('.js-like-button');
+
+for(let value of btnLike){
+    value.addEventListener('click', like);
+}
+
+function like(){
+    if(!this.classList.contains('like-button--liked')){
+        this.classList.add('like-button--liked');
+    }else{
+        this.classList.remove('like-button--liked');
+    }
+};
