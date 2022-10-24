@@ -34,6 +34,7 @@ h1 {
 .post { 
     padding: 16px;
     background-color: white;
+    margin-bottom: 50px;
 }
 
 .post__header {
